@@ -1,4 +1,5 @@
 import "./Select.scss";
+import arrow from "../../../assets/icon-arrow-down.svg";
 
 export interface SelectProps {
   selectName: string;
@@ -10,12 +11,11 @@ const Select = ({ selectName, data }: SelectProps) => {
     <div className="select">
       <label>{selectName}</label>
       <div>
-        <span></span>
-        <ul>
-          {data.map((singleData) => (
-            <li>{singleData}</li>
-          ))}
-        </ul>
+        <span>{data[0]}</span>
+        <button>
+          <img src={arrow} />
+        </button>
+        <ul>{data?.map((singleData) => <li>{singleData}</li>)}</ul>
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import "./Input.scss";
 
 export interface InputProps {
-  labelTitle: string;
+  label: string;
 }
 
-export const Input = ({ labelTitle }: InputProps) => {
+export const Input = ({ label }: InputProps) => {
   return (
-    <label className="label" htmlFor={labelTitle}>
-      {labelTitle}
-      <input id={labelTitle} placeholder={labelTitle} />
+    <label className="label" htmlFor={label}>
+      {label}
+      <input id={label} placeholder={label} />
     </label>
   );
 };
