@@ -1,4 +1,6 @@
 import "./Input.scss";
+import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
 
 export interface InputProps {
   label: string;
@@ -6,9 +8,14 @@ export interface InputProps {
 
 export const Input = ({ label }: InputProps) => {
   return (
-    <label className="label" htmlFor={label}>
-      {label}
-      <input id={label} placeholder={label} />
-    </label>
+    <>
+      <InputLabel>{label}</InputLabel>
+      <TextField variant="filled" />
+    </>
+
+    // <label className="label" htmlFor={label}>
+    //   {label}
+    //   <input id={label} placeholder={label} />
+    // </label>
   );
 };
