@@ -17,7 +17,7 @@ export const SelectComponent = ({ selectName, data }: SelectProps) => {
   const [selectValue, setSelectValue] = useState("");
 
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectValue(e.target.value);
+    setSelectValue(e.target.value as string);
   };
 
   return (
