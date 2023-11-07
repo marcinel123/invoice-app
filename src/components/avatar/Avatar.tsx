@@ -6,17 +6,18 @@ export const Avatar = () => {
   return (
     <Box
       sx={{
-        borderTop: "1px solid white",
+        borderTop: "1px solid",
+        borderColor: "primary.light",
         position: "absolute",
-        bottom: "0px",
-        minHeight: "80px",
-        minWidth: "103px",
+        bottom: "0",
+        minHeight: "5rem",
+        minWidth: "6.4375rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <img className="img_avatar" src={avatar} />
+      <img className="img_avatar" src={avatar} alt="image of user avatar" />
     </Box>
   );
 };

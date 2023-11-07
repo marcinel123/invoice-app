@@ -7,13 +7,14 @@ import { useState } from "react";
 export interface SelectProps {
   selectName: string;
   data: string[];
+  label: string;
 }
 
 const styles = {
   minWidth: 250,
 };
 
-export const SelectComponent = ({ selectName, data }: SelectProps) => {
+export const SelectComponent = ({ selectName, data, label }: SelectProps) => {
   const [selectValue, setSelectValue] = useState("");
 
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +26,7 @@ export const SelectComponent = ({ selectName, data }: SelectProps) => {
       <InputLabel>{selectName}</InputLabel>
       <Select
         sx={styles}
-        label="None"
+        label={label}
         value={selectValue}
         onChange={handleSelect}
       >

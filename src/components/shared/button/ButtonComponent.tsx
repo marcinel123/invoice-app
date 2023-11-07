@@ -5,5 +5,5 @@ interface ButtonProps {
 }
 
 export const ButtonComponent = ({ title }: ButtonProps) => {
-  return <Button variant="contained">{title}</Button>;
+  return <Button>{title}</Button>;
 };

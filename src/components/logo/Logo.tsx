@@ -6,11 +6,10 @@ export const Logo = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#7C5DFA",
+        bgcolor: "secondary.light",
         width: 1,
-        height: "4rem",
-        minHeight: "103px",
-        minWidth: "103px",
+        minHeight: "6.4375rem",
+        minWidth: "6.4375rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -19,10 +18,10 @@ export const Logo = () => {
         borderBottomRightRadius: 15,
       }}
     >
-      <img className="img_logo" src={logo} />
+      <img className="img_logo" src={logo} alt="logo icon" />
       <Box
         sx={{
-          bgcolor: "#9277FF",
+          bgcolor: "secondary.main",
           width: 1,
           height: "50%",
           position: "absolute",

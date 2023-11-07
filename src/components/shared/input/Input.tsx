@@ -10,12 +10,7 @@ export const Input = ({ label }: InputProps) => {
   return (
     <>
       <InputLabel>{label}</InputLabel>
-      <TextField variant="filled" />
+      <TextField />
     </>
-
-    // <label className="label" htmlFor={label}>
-    //   {label}
-    //   <input id={label} placeholder={label} />
-    // </label>
   );
 };
