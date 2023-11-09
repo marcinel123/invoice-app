@@ -1,5 +1,5 @@
 import "./Select.scss";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Select as MuiSelect, SelectChangeEvent } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import { useState } from "react";
@@ -8,28 +8,25 @@ export interface SelectProps {
   selectName: string;
   data: string[];
   label: string;
+  styles: object;
 }
 
-const styles = {
-  minWidth: 250,
-  marginTop: 5,
-  color: "primary.light",
-};
-
-export const SelectComponent = ({ selectName, data, label }: SelectProps) => {
-  const [selectValue, setSelectValue] = useState("Filter by status");
+export const Select = ({ selectName, data, label, styles }: SelectProps) => {
+  const [selectedValue, setSelectValue] = useState("Filter by status");
 
   const handleSelect = (e: SelectChangeEvent<string>) => {
     setSelectValue(e.target.value);
   };
 
+  // dodac arrayke z obiektami.
   return (
     <>
       <InputLabel>{selectName}</InputLabel>
-      <Select
+      <MuiSelect
+        placeholder="Nazwa"
         sx={styles}
         label={label}
-        value={selectValue}
+        value={selectedValue}
         onChange={handleSelect}
       >
         {data?.map((singleData, index) => (
@@ -37,9 +34,7 @@ export const SelectComponent = ({ selectName, data, label }: SelectProps) => {
             {singleData}
           </MenuItem>
         ))}
-      </Select>
+      </MuiSelect>
     </>
   );
 };
-
-export default Select;

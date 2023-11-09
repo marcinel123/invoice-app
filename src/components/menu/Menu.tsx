@@ -1,34 +1,15 @@
 import Box from "@mui/material/Box";
 import sunIcon from "../../assets/icon-sun.svg";
 import { Logo } from "../logo/Logo";
-import { Avatar } from "../avatar/Avatar";
+import { Avatar } from "../avatar/Avatar.tsx";
+import { menu_styles } from "../menu/Menu.styles.ts";
+import { icon_styles } from "../menu/Menu.styles.ts";
 
 export const Menu = () => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        position: "relative",
-        bgcolor: "primary.main",
-        width: "5%",
-        minWidth: "6.4375rem",
-        height: "100%",
-      }}
-    >
+    <Box sx={menu_styles}>
       <Logo />
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "5rem",
-          minHeight: "5rem",
-          minWidth: "6.4375rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <Box sx={icon_styles}>
         <img className="sun_Icon" src={sunIcon} alt="icon of the sun" />
       </Box>
       <Avatar />

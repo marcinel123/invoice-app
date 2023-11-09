@@ -2,8 +2,8 @@ import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import icon_plus from "../../assets/icon-plus.svg";
-import { SelectComponent } from "../shared/select/SelectComponent";
-import { ButtonComponent } from "../shared/button/ButtonComponent";
+import { Select } from "../shared/select/Select";
+import { Button } from "../shared/button/Button";
 import { theme } from "../../theme/Theme";
 
 const btnStyles = {
@@ -18,6 +18,16 @@ const btnStyles = {
   borderTopLeftRadius: 25,
   borderBottomLeftRadius: 25,
   fontSize: "0.75rem",
+  "&:hover": { backgroundColor: theme.palette.secondary.main },
+};
+
+const select_styles = {
+  minWidth: 250,
+  marginTop: 5,
+  color: theme.palette.primary.light,
+  "& fieldset": {
+    border: "none",
+  },
 };
 
 export const Header = () => {
@@ -38,17 +48,14 @@ export const Header = () => {
         </Typography>
       </Box>
       <Box>
-        <SelectComponent
+        <Select
           selectName=""
           data={["Draft", "Pending", "Paid"]}
           label=""
+          styles={select_styles}
         />
       </Box>
-      <ButtonComponent
-        className="invoice_btn"
-        title="New invoice"
-        styles={btnStyles}
-      >
+      <Button className="invoice_btn" title="New invoice" styles={btnStyles}>
         <Box
           sx={{
             display: "flex",
@@ -62,7 +69,7 @@ export const Header = () => {
         >
           <img className="icon_plus" src={icon_plus} alt="" />
         </Box>
-      </ButtonComponent>
+      </Button>
     </Container>
   );
 };

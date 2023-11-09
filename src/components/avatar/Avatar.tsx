@@ -1,23 +1,21 @@
 import avatar from "../../assets/image-avatar.jpg";
-import Box from "@mui/material/Box";
 import "./Avatar.scss";
+import { Avatar as MuiAvatar } from "@mui/material/";
+
+const avatar_styles = {
+  borderTop: "1px solid",
+  borderColor: "primary.light",
+  position: "absolute",
+  bottom: "0",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "40px",
+  height: "40px",
+};
 
 export const Avatar = () => {
   return (
-    <Box
-      sx={{
-        borderTop: "1px solid",
-        borderColor: "primary.light",
-        position: "absolute",
-        bottom: "0",
-        minHeight: "5rem",
-        minWidth: "6.4375rem",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <img className="img_avatar" src={avatar} alt="image of user avatar" />
-    </Box>
+    <MuiAvatar sx={avatar_styles} alt="image of user avatar" src={avatar} />
   );
 };
