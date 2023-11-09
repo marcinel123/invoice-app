@@ -1,24 +1,40 @@
 import "./Select.scss";
-import arrow from "../../../assets/icon-arrow-down.svg";
+import { Select as MuiSelect, SelectChangeEvent } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import { useState } from "react";
 
 export interface SelectProps {
   selectName: string;
   data: string[];
+  label: string;
+  styles: object;
 }
 
-const Select = ({ selectName, data }: SelectProps) => {
+export const Select = ({ selectName, data, label, styles }: SelectProps) => {
+  const [selectedValue, setSelectValue] = useState("Filter by status");
+
+  const handleSelect = (e: SelectChangeEvent<string>) => {
+    setSelectValue(e.target.value);
+  };
+
+  // dodac arrayke z obiektami.
   return (
-    <div className="select">
-      <label>{selectName}</label>
-      <div>
-        <span>{data[0]}</span>
-        <button>
-          <img src={arrow} />
-        </button>
-        <ul>{data?.map((singleData) => <li>{singleData}</li>)}</ul>
-      </div>
-    </div>
+    <>
+      <InputLabel>{selectName}</InputLabel>
+      <MuiSelect
+        placeholder="Nazwa"
+        sx={styles}
+        label={label}
+        value={selectedValue}
+        onChange={handleSelect}
+      >
+        {data?.map((singleData, index) => (
+          <MenuItem key={index} value={singleData}>
+            {singleData}
+          </MenuItem>
+        ))}
+      </MuiSelect>
+    </>
   );
 };
-
-export default Select;
