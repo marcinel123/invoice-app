@@ -1,5 +1,5 @@
 import "./Select.scss";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import { useState } from "react";
@@ -12,13 +12,15 @@ export interface SelectProps {
 
 const styles = {
   minWidth: 250,
+  marginTop: 5,
+  color: "primary.light",
 };
 
 export const SelectComponent = ({ selectName, data, label }: SelectProps) => {
-  const [selectValue, setSelectValue] = useState("");
+  const [selectValue, setSelectValue] = useState("Filter by status");
 
-  const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectValue(e.target.value as string);
+  const handleSelect = (e: SelectChangeEvent<string>) => {
+    setSelectValue(e.target.value);
   };
 
   return (
